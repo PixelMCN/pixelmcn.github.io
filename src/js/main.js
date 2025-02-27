@@ -39,20 +39,46 @@ window.onload = function() {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+    const loader = document.querySelector('.loading-container');
+    const minimumLoadTime = 2500; // 2.5 seconds in milliseconds
+    const startTime = Date.now();
+    
+    if (loader) {
+        // Show loader immediately
+        loader.style.opacity = '1';
+        
+        // Hide loader when content is loaded AND minimum time has passed
+        window.addEventListener('load', () => {
+            const elapsedTime = Date.now() - startTime;
+            const remainingTime = Math.max(minimumLoadTime - elapsedTime, 0);
+
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, remainingTime);
+        });
+    }
+
     // Initialize AOS animation library
     AOS.init({
         duration: 800,
         once: true,
-        offset: 100
+        offset: 100,
+        disable: 'mobile' // Disable on mobile for better performance
     });
 
     // Smooth scroll for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 });
