@@ -1,0 +1,15 @@
+{
+  "name": "minecraft-portfolio",
+  "version": "1.0.0",
+  "description": "A personal website showcasing projects with a Minecraft theme.",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
