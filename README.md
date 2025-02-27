@@ -1,10 +1,23 @@
-# Minecraft Portfolio
+# My Site
 
-Welcome to my Minecraft-themed personal website! This site showcases my projects and provides information about me.
+A Minecraft-themed personal website showcasing my projects, mods, and community contributions.
 
-## Overview
+## Features
 
-This website is designed to reflect the aesthetics of Minecraft, featuring blocky designs and earthy colors. It serves as a portfolio to display my work and connect with visitors.
+- Minecraft-inspired design with glassmorphism effects
+- Real-time Modrinth project integration
+- Discord community widget
+- Mobile-responsive layout
+- Particle effects and animations
+- Dark theme optimized for readability
+
+## Tech Stack
+
+- HTML5 & CSS3
+- Vanilla JavaScript
+- AOS (Animate on Scroll)
+- Modrinth API
+- Discord Widget API
 
 ## Project Structure
 
