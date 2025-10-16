@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Documentation and guides for PixelMCN's projects">
+  <meta name="author" content="PixelMCN">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="PixelMCN - Documentation">
+  <meta property="og:description" content="Documentation and guides for my projects and tools">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pixelmcn.github.io/docs.html">
+  <meta property="og:image" content="https://pixelmcn.github.io/resources/images/pixelmcn.jpg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PixelMCN - Documentation">
+  <meta name="twitter:description" content="Documentation and guides for my projects and tools">
+  <meta name="twitter:image" content="https://pixelmcn.github.io/resources/images/pixelmcn.jpg">
+  
+  <!-- Discord/Embed Meta Tags -->
+  <meta name="theme-color" content="#3b82f6">
+  <meta property="og:site_name" content="PixelMCN Portfolio">
+  
+  <title>PixelMCN - Docs</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="./resources/images/pixelmcn.jpg">
+  <link rel="apple-touch-icon" href="./resources/images/pixelmcn.jpg">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/docs.css">
+</head>
+<body data-page="docs">
+  
+  <!-- Page Transition Overlay -->
+  <div class="page-transition"></div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="menu-overlay"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="navbar-container">
+      <a href="./" class="navbar-logo" aria-label="Home">
+        <span class="logo-text">PixelMCN</span>
+      </a>
+
+      <ul class="navbar-menu">
+        <li><a href="./">Home</a></li>
+        <li><a href="./docs.html" class="active">Docs</a></li>
+      </ul>
+
+      <button class="navbar-toggle" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Coming Soon Section -->
+  <section class="coming-soon-section">
+    <div class="coming-soon-content">
+      <div class="floating-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+        </svg>
+      </div>
+      
+      <h1 class="coming-soon-title">Coming Soon <span class="wink">;)</span></h1>
+      <p class="coming-soon-description">The documentation page is currently under construction. Check back soon for guides, tutorials, and resources!</p>
+      
+      <a href="./" class="back-home-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        Back to Home
+      </a>
+    </div>
+  </section>
+
+  <!-- Docs Layout (Hidden for now) -->
+  <div class="docs-layout" style="display: none;">
+    <!-- Sidebar -->
+    <aside class="docs-sidebar" id="docsSidebar">
+      <div class="sidebar-header">
+        <h3>Documentation</h3>
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close Sidebar">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="sidebar-search">
+        <input type="text" placeholder="Search docs..." id="docsSearch">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="search-icon">
+          <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <button class="nav-section-toggle active" data-section="getting-started">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="chevron">
+              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+            <span>Getting Started</span>
+          </button>
+          <ul class="nav-section-items active">
+            <li><a href="#introduction" class="nav-link active">Introduction</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#quick-start">Quick Start</a></li>
+            <li><a href="#configuration">Configuration</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-section">
+          <button class="nav-section-toggle" data-section="guides">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="chevron">
+              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+            <span>Guides</span>
+          </button>
+          <ul class="nav-section-items">
+            <li><a href="#web-development">Web Development</a></li>
+            <li><a href="#python-basics">Python Basics</a></li>
+            <li><a href="#javascript-tips">JavaScript Tips</a></li>
+            <li><a href="#best-practices">Best Practices</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-section">
+          <button class="nav-section-toggle" data-section="tutorials">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="chevron">
+              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+            <span>Tutorials</span>
+          </button>
+          <ul class="nav-section-items">
+            <li><a href="#building-api">Building an API</a></li>
+            <li><a href="#responsive-design">Responsive Design</a></li>
+            <li><a href="#git-workflow">Git Workflow</a></li>
+            <li><a href="#deployment">Deployment</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-section">
+          <button class="nav-section-toggle" data-section="resources">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="chevron">
+              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+            <span>Resources</span>
+          </button>
+          <ul class="nav-section-items">
+            <li><a href="#useful-tools">Useful Tools</a></li>
+            <li><a href="#learning-resources">Learning Resources</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Mobile Sidebar Toggle -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Sidebar">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+      </svg>
+    </button>
+
+    <!-- Main Content -->
+    <main class="docs-content">
+      <div class="content-wrapper">
+        <!-- Introduction -->
+        <section id="introduction" class="doc-section">
+          <h1>Introduction</h1>
+          <p class="lead">Welcome to the documentation! This guide will help you get started and make the most of the resources available.</p>
+          
+          <div class="info-box">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="info-icon">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+            </svg>
+            <div>
+              <h4>Getting Help</h4>
+              <p>If you need assistance, feel free to reach out through GitHub issues or join our community on Discord.</p>
+            </div>
+          </div>
+
+          <h2>What You'll Learn</h2>
+          <ul>
+            <li>How to set up your development environment</li>
+            <li>Best practices for modern web development</li>
+            <li>Tips and tricks for efficient coding</li>
+            <li>Resources to continue your learning journey</li>
+          </ul>
+        </section>
+
+        <!-- Installation -->
+        <section id="installation" class="doc-section">
+          <h1>Installation</h1>
+          <p>Follow these steps to set up your development environment.</p>
+
+          <h2>Prerequisites</h2>
+          <p>Before you begin, make sure you have the following installed:</p>
+          <ul>
+            <li>Node.js (v16 or higher)</li>
+            <li>Git</li>
+            <li>A code editor (VS Code recommended)</li>
+          </ul>
+
+          <h2>Step 1: Clone the Repository</h2>
+          <div class="code-block">
+            <div class="code-header">
+              <span>bash</span>
+              <button class="copy-code" aria-label="Copy code">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                </svg>
+              </button>
+            </div>
+            <pre><code>git clone https://github.com/pixelmcn/your-project.git
+cd your-project</code></pre>
+          </div>
+
+          <h2>Step 2: Install Dependencies</h2>
+          <div class="code-block">
+            <div class="code-header">
+              <span>bash</span>
+              <button class="copy-code" aria-label="Copy code">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                </svg>
+              </button>
+            </div>
+            <pre><code>npm install</code></pre>
+          </div>
+        </section>
+
+        <!-- Quick Start -->
+        <section id="quick-start" class="doc-section">
+          <h1>Quick Start</h1>
+          <p>Get up and running in minutes with this quick start guide.</p>
+
+          <h2>Running the Development Server</h2>
+          <div class="code-block">
+            <div class="code-header">
+              <span>bash</span>
+              <button class="copy-code" aria-label="Copy code">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                </svg>
+              </button>
+            </div>
+            <pre><code>npm run dev</code></pre>
+          </div>
+
+          <p>Open your browser and navigate to <code>http://localhost:3000</code> to see your application running.</p>
+
+          <div class="warning-box">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="warning-icon">
+              <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+            </svg>
+            <div>
+              <h4>Important Note</h4>
+              <p>Make sure all dependencies are installed before running the development server.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Configuration -->
+        <section id="configuration" class="doc-section">
+          <h1>Configuration</h1>
+          <p>Customize your setup with these configuration options.</p>
+
+          <h2>Environment Variables</h2>
+          <p>Create a <code>.env</code> file in the root directory:</p>
+          <div class="code-block">
+            <div class="code-header">
+              <span>.env</span>
+              <button class="copy-code" aria-label="Copy code">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                </svg>
+              </button>
+            </div>
+            <pre><code>API_KEY=your_api_key_here
+PORT=3000
+NODE_ENV=development</code></pre>
+          </div>
+        </section>
+
+        <!-- Web Development -->
+        <section id="web-development" class="doc-section">
+          <h1>Web Development</h1>
+          <p>Learn the essentials of modern web development.</p>
+
+          <h2>HTML Best Practices</h2>
+          <ul>
+            <li>Use semantic HTML elements</li>
+            <li>Always include alt text for images</li>
+            <li>Structure your document properly</li>
+            <li>Use proper heading hierarchy</li>
+          </ul>
+
+          <h2>CSS Tips</h2>
+          <div class="code-block">
+            <div class="code-header">
+              <span>css</span>
+              <button class="copy-code" aria-label="Copy code">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                </svg>
+              </button>
+            </div>
+            <pre><code>/* Use CSS custom properties for theming */
+:root {
+  --primary-color: #3b82f6;
+  --secondary-color: #10b981;
+  --background: #000000;
+}
+
+/* Mobile-first approach */
+.container {
+  width: 100%;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}</code></pre>
+          </div>
+        </section>
+
+        <!-- Python Basics -->
+        <section id="python-basics" class="doc-section">
+          <h1>Python Basics</h1>
+          <p>Essential Python concepts for beginners.</p>
+
+          <h2>Variables and Data Types</h2>
+          <div class="code-block">
+            <div class="code-header">
+              <span>python</span>
+              <button class="copy-code" aria-label="Copy code">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                </svg>
+              </button>
+            </div>
+            <pre><code># Basic data types
+name = "PixelMCN"
+age = 20
+is_developer = True
+skills = ["Python", "JavaScript", "Java"]
+
+# Functions
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet(name))</code></pre>
+          </div>
+        </section>
+
+        <!-- JavaScript Tips -->
+        <section id="javascript-tips" class="doc-section">
+          <h1>JavaScript Tips</h1>
+          <p>Modern JavaScript techniques and best practices.</p>
+
+          <h2>ES6+ Features</h2>
+          <div class="code-block">
+            <div class="code-header">
+              <span>javascript</span>
+              <button class="copy-code" aria-label="Copy code">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                </svg>
+              </button>
+            </div>
+            <pre><code>// Arrow functions
+const greet = (name) => `Hello, ${name}!`;
+
+// Destructuring
+const { username, email } = user;
+
+// Async/await
+async function fetchData() {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}</code></pre>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section id="best-practices" class="doc-section">
+          <h1>Best Practices</h1>
+          <p>Follow these guidelines to write clean, maintainable code.</p>
+
+          <h2>Code Organization</h2>
+          <ul>
+            <li>Keep functions small and focused</li>
+            <li>Use meaningful variable and function names</li>
+            <li>Comment complex logic</li>
+            <li>Follow consistent formatting</li>
+          </ul>
+
+          <h2>Version Control</h2>
+          <ul>
+            <li>Write clear commit messages</li>
+            <li>Commit frequently with logical changes</li>
+            <li>Use branches for new features</li>
+            <li>Review code before merging</li>
+          </ul>
+        </section>
+
+        <!-- More sections would continue here -->
+        <section id="building-api" class="doc-section">
+          <h1>Building an API</h1>
+          <p>Learn how to create RESTful APIs.</p>
+          <p>Coming soon...</p>
+        </section>
+
+        <section id="responsive-design" class="doc-section">
+          <h1>Responsive Design</h1>
+          <p>Create websites that work on all devices.</p>
+          <p>Coming soon...</p>
+        </section>
+
+        <section id="git-workflow" class="doc-section">
+          <h1>Git Workflow</h1>
+          <p>Master Git for version control.</p>
+          <p>Coming soon...</p>
+        </section>
+
+        <section id="deployment" class="doc-section">
+          <h1>Deployment</h1>
+          <p>Deploy your applications to production.</p>
+          <p>Coming soon...</p>
+        </section>
+
+        <section id="useful-tools" class="doc-section">
+          <h1>Useful Tools</h1>
+          <p>Tools that make development easier.</p>
+          <p>Coming soon...</p>
+        </section>
+
+        <section id="learning-resources" class="doc-section">
+          <h1>Learning Resources</h1>
+          <p>Curated resources for continuous learning.</p>
+          <p>Coming soon...</p>
+        </section>
+
+        <section id="community" class="doc-section">
+          <h1>Community</h1>
+          <p>Join our developer community.</p>
+          <p>Coming soon...</p>
+        </section>
+
+        <section id="faq" class="doc-section">
+          <h1>FAQ</h1>
+          <p>Frequently asked questions.</p>
+          <p>Coming soon...</p>
+        </section>
+      </div>
+
+      <!-- Table of Contents -->
+      <aside class="toc">
+        <h4>On This Page</h4>
+        <nav id="tocNav">
+          <!-- Generated dynamically -->
+        </nav>
+      </aside>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>PixelMCN</h4>
+          <p>With enough lines of code, anything is possible. :D</p>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="./">Home</a></li>
+            <li><a href="./docs.html">Docs</a></li>
+            <li><a href="https://github.com/pixelmcn" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <div class="footer-socials">
+            <a href="https://discord.com/users/647412652930498560" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+              </svg>
+            </a>
+            <a href="https://github.com/pixelmcn" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+            <a href="https://bsky.app/profile/pixelis0p.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 PixelMCN. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AnimeJS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  
+  <!-- Scripts -->
+  <script src="./js/global.js"></script>
+  <script src="./js/docs.js"></script>
+</body>
+</html>
