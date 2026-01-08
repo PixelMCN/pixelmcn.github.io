@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Github, Globe, Mail, MessageCircle, ArrowUpRight } from 'lucide-react';
 
 interface ContactSectionProps {
@@ -7,7 +6,9 @@ interface ContactSectionProps {
 }
 
 const ContactSection: React.FC<ContactSectionProps> = ({ darkMode, contactRef }) => {
-  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  // ...existing code...
+  // Removed the unused hoveredCard state variable
+  // const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   const contactCards = [
     {
@@ -66,8 +67,10 @@ const ContactSection: React.FC<ContactSectionProps> = ({ darkMode, contactRef })
                 href={card.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                onMouseEnter={() => setHoveredCard(card.id)}
-                onMouseLeave={() => setHoveredCard(null)}
+                // ...existing code...
+                // Removed onMouseEnter and onMouseLeave handlers that set the unused state
+                // onMouseEnter={() => setHoveredCard(card.id)}
+                // onMouseLeave={() => setHoveredCard(null)}
                 className={`group relative overflow-hidden rounded-2xl transition-all duration-500 ${
                   darkMode 
                     ? 'bg-slate-900/50 border-slate-700/50 hover:border-purple-500/50' 
