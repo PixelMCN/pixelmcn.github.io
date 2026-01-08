@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8b5cf6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed;
+}
+
+/* Marquee animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 25s linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Scroll snap styles - updated for fixed navigation */
+.scroll-snap-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  /* Hide scrollbar for cleaner look */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.3) transparent;
+  /* Account for fixed navigation */
+  padding-top: 0;
+}
+
+/* Ensure sections fill viewport but account for navigation */
+.scroll-snap-section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  /* Add padding to account for fixed navigation */
+  padding-top: 60px;
+}
+
+/* First section doesn't need extra padding since navigation is fixed */
+.scroll-snap-section:first-child {
+  padding-top: 0;
+}
+
+/* Hide scrollbar for snap container but keep functionality */
+.scroll-snap-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-snap-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-snap-container::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 3px;
+}
+
+.scroll-snap-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.5);
+}
+
+/* Ensure smooth scroll behavior for all browsers */
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-snap-container {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Handle touch devices better */
+@media (hover: none) and (pointer: coarse) {
+  .scroll-snap-container {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Additional scroll snap enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-snap-container {
+    scroll-behavior: auto;
+  }
+  .scroll-snap-section {
+    scroll-snap-stop: normal;
+  }
+}
+
+/* Ensure sections don't have any margin/padding that could affect snap */
+.scroll-snap-section > section {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Fix for Safari scroll snap */
+@supports (scroll-snap-type: y mandatory) {
+  .scroll-snap-container {
+    scroll-snap-type: y mandatory;
+  }
+}
+
+/* Ensure background stays fixed during scroll */
+.scroll-snap-container ~ .fixed,
+.scroll-snap-container .fixed {
+  position: fixed;
+  z-index: -1;
+}
+
+/* Mobile-specific scroll snap enhancements */
+@media (max-width: 768px) {
+  .scroll-snap-container {
+    scroll-snap-type: y mandatory;
+    /* On mobile, ensure smooth scrolling is enabled */
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .scroll-snap-section {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
+
+/* Ensure fixed elements don't interfere with scroll snap */
+.fixed {
+  position: fixed !important;
+  z-index: 1000;
+}
+
+/* Navigation should stay above scroll content */
+nav.fixed {
+  z-index: 1000;
+}
+
+/* Background should stay below scroll content */
+.fixed.inset-0 {
+  z-index: 0;
+}
