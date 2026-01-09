@@ -10,27 +10,45 @@
 
 body {
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - improved for mobile */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
   background: transparent;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #8b5cf6;
-  border-radius: 4px;
+  border-radius: 3px;
+  transition: background 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #7c3aed;
+  width: 8px;
 }
 
-/* Marquee animations */
+/* Mobile scrollbar - thinner and less intrusive */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.6);
+  }
+}
+
+/* Marquee animations - optimized for mobile performance */
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -62,18 +80,32 @@ body {
   animation-play-state: paused;
 }
 
-/* Scroll snap styles - updated for fixed navigation */
+/* Mobile-specific marquee adjustments */
+@media (max-width: 768px) {
+  .animate-marquee,
+  .animate-marquee-reverse {
+    animation-duration: 20s; /* Faster on mobile */
+  }
+  
+  .animate-marquee:hover,
+  .animate-marquee-reverse:hover {
+    animation-play-state: running; /* Keep running on touch devices */
+  }
+}
+
+/* Scroll snap styles - enhanced for mobile */
 .scroll-snap-container {
   height: 100vh;
   overflow-y: scroll;
+  overflow-x: hidden;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  /* Hide scrollbar for cleaner look */
+  -webkit-overflow-scrolling: touch; /* Smooth momentum scrolling on iOS */
   scrollbar-width: thin;
   scrollbar-color: rgba(139, 92, 246, 0.3) transparent;
-  /* Account for fixed navigation */
   padding-top: 0;
+  /* Prevent bounce effect on iOS */
+  overscroll-behavior-y: none;
 }
 
 /* Ensure sections fill viewport but account for navigation */
@@ -84,29 +116,36 @@ body {
   position: relative;
   /* Add padding to account for fixed navigation */
   padding-top: 60px;
+  /* Ensure proper touch handling */
+  touch-action: manipulation;
 }
 
 /* First section doesn't need extra padding since navigation is fixed */
 .scroll-snap-section:first-child {
   padding-top: 0;
+  min-height: 100vh; /* Ensure full height on mobile */
 }
 
 /* Hide scrollbar for snap container but keep functionality */
 .scroll-snap-container::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
+  height: 4px;
 }
 
 .scroll-snap-container::-webkit-scrollbar-track {
   background: transparent;
+  border-radius: 2px;
 }
 
 .scroll-snap-container::-webkit-scrollbar-thumb {
   background: rgba(139, 92, 246, 0.3);
-  border-radius: 3px;
+  border-radius: 2px;
+  transition: background 0.2s ease;
 }
 
 .scroll-snap-container::-webkit-scrollbar-thumb:hover {
   background: rgba(139, 92, 246, 0.5);
+  width: 6px;
 }
 
 /* Ensure smooth scroll behavior for all browsers */
@@ -120,6 +159,11 @@ body {
 @media (hover: none) and (pointer: coarse) {
   .scroll-snap-container {
     -webkit-overflow-scrolling: touch;
+    scroll-snap-type: y mandatory; /* Keep snap on touch devices */
+  }
+  
+  .scroll-snap-section {
+    scroll-snap-stop: normal; /* Less aggressive snapping on touch */
   }
 }
 
@@ -137,6 +181,8 @@ body {
 .scroll-snap-section > section {
   margin: 0 !important;
   padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 /* Fix for Safari scroll snap */
@@ -153,33 +199,120 @@ body {
   z-index: -1;
 }
 
-/* Mobile-specific scroll snap enhancements */
-@media (max-width: 768px) {
-  .scroll-snap-container {
-    scroll-snap-type: y mandatory;
-    /* On mobile, ensure smooth scrolling is enabled */
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .scroll-snap-section {
-    min-height: 100vh;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
-}
-
-/* Ensure fixed elements don't interfere with scroll snap */
-.fixed {
-  position: fixed !important;
-  z-index: 1000;
-}
-
 /* Navigation should stay above scroll content */
 nav.fixed {
   z-index: 1000;
+  /* Ensure navigation is always accessible */
+  touch-action: manipulation;
 }
 
 /* Background should stay below scroll content */
 .fixed.inset-0 {
   z-index: 0;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .scroll-snap-container {
+    scroll-snap-type: y mandatory; /* Keep snap but with less strict behavior */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+  }
+  
+  .scroll-snap-section {
+    min-height: 100vh; /* Ensure full viewport height */
+    scroll-snap-align: start;
+    scroll-snap-stop: normal; /* Less aggressive on mobile */
+    padding-top: 56px; /* Slightly smaller nav on mobile */
+  }
+  
+  /* First section should account for smaller nav */
+  .scroll-snap-section:first-child {
+    padding-top: 0;
+  }
+  
+  /* Ensure content is properly spaced on mobile */
+  .scroll-snap-section > section {
+    min-height: 100vh;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+}
+
+/* Tablet adjustments (768px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .scroll-snap-section {
+    padding-top: 64px; /* Slightly larger nav on tablet */
+  }
+}
+
+/* Prevent text selection on interactive elements for better UX */
+button, a, .scroll-snap-section, .scroll-snap-container {
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+  user-select: none; /* Prevent text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Restore selection for actual text content */
+p, span, h1, h2, h3, h4, h5, h6, div:has(p), div:has(span) {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+}
+
+/* Improve touch targets for mobile accessibility */
+@media (max-width: 768px) {
+  button, a, [role="button"] {
+    min-height: 44px; /* Minimum touch target size */
+    min-width: 44px; /* Ensure minimum width for touch */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Ensure links and buttons have proper spacing */
+  a[href], button {
+    padding: 8px 12px; /* Adequate padding for touch */
+    margin: 4px; /* Prevent accidental taps */
+  }
+}
+
+/* Smooth transitions for theme changes */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+  }
+}
+
+/* Focus styles for keyboard navigation - important for accessibility */
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #8b5cf6 !important;
+  outline-offset: 2px !important;
+  border-radius: 4px !important;
+}
+
+/* Mobile-specific focus improvements */
+@media (max-width: 768px) {
+  button:focus-visible, a:focus-visible, [role="button"]:focus-visible {
+    outline-width: 3px; /* Thicker outline on mobile for visibility */
+    outline-offset: 3px;
+  }
+}
+
+/* Prevent zoom on input focus for mobile (optional - can be removed if not desired) */
+@media (max-width: 768px) {
+  input, select, textarea, button, a[href] {
+    font-size: 16px; /* Prevent auto-zoom on iOS Safari */
+  }
+}
+
+/* Ensure proper viewport behavior on mobile */
+@supports (-webkit-touch-callout: none) {
+  /* CSS specific to iOS Safari */
+  .scroll-snap-container {
+    height: -webkit-fill-available; /* Better height handling on iOS */
+  }
 }
