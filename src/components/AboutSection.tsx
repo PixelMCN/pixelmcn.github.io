@@ -7,21 +7,22 @@ interface AboutSectionProps {
 
 const AboutSection: React.FC<AboutSectionProps> = ({ darkMode, aboutRef }) => {
   const skills = [
-    { name: 'JavaScript', icon: '/icons/javascript.svg' },
-    { name: 'TypeScript', icon: '/icons/typescript.svg' },
-    { name: 'Python', icon: '/icons/python.svg' },
-    { name: 'PHP', icon: '/icons/php.svg' },
-    { name: 'React', icon: '/icons/react.svg' },
-    { name: 'Next.js', icon: '/icons/nextdotjs.svg' },
-    { name: 'Vue', icon: '/icons/vuedotjs.svg' },
-    { name: 'Vite', icon: '/icons/vite.svg' },
-    { name: 'Discord.js', icon: '/icons/discorddotjs.svg' },
-    { name: 'Tailwind', icon: '/icons/tailwindcss.svg' },
-    { name: 'Git', icon: '/icons/git.svg' },
-    { name: 'Node.js', icon: '/icons/nodedotjs.svg' },
-    { name: 'HTML', icon: '/icons/html5.svg' },
-    { name: 'CSS', icon: '/icons/css.svg' },
-    { name: 'Go', icon: '/icons/go.svg' }
+    { name: 'JavaScript', icon: '/new/javascript.svg' },
+    { name: 'TypeScript', icon: '/new/typescript.svg' },
+    { name: 'Python', icon: '/new/python.svg' },
+    { name: 'PHP', icon: '/new/php.png' },
+    { name: 'Java', icon: '/new/java.png' },
+    { name: 'React', icon: '/new/react.png' },
+    { name: 'Next.js', icon: '/new/nextjs.png' },
+    { name: 'Vue', icon: '/new/vuejs.png' },
+    { name: 'Vite', icon: '/new/vite.png' },
+    { name: 'Discord.js', icon: '/new/discordjs.png' },
+    { name: 'Tailwind', icon: '/new/tailwindcss.svg' },
+    { name: 'Git', icon: '/new/git.svg' },
+    { name: 'Node.js', icon: '/new/nodejs.png' },
+    { name: 'HTML', icon: '/new/html.svg' },
+    { name: 'CSS', icon: '/new/css.svg' },
+    { name: 'Go', icon: '/new/go.svg' }
   ];
 
   return (
